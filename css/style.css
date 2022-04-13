@@ -1,0 +1,246 @@
+ body{
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+}
+
+
+::-webkit-scrollbar
+    {
+       width: 6px;  /* for vertical scrollbars */
+       height: 12px; /* for horizontal scrollbars */
+    }
+
+    ::-webkit-scrollbar-track
+    {
+       background: rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb
+    {
+       background: #CBCBCB ;
+    }
+	}
+
+
+	 table {
+		max-width:980px;
+		table-layout:fixed;
+		margin:auto;
+	}
+
+	thead, tfoot {
+		width: 100%;
+		display:table;
+	}
+
+	tbody {
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		height:300px;
+		overflow:auto;
+		overflow-x:hidden;
+		display:block;
+		width:100%;
+	}
+
+	tbody tr {
+		display:table;
+		width:100%;
+		table-layout:fixed;
+	}
+
+	th{
+		text-align: center;
+	}
+
+	.modal-open .modal{
+	overflow-y: inherit;
+}
+
+.tableMy {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.requiredStar{
+	color:rgb(247, 95, 19);
+	display: inline;
+	font-weight: bold;
+	position: absolute;
+}
+
+.myRadius{
+	border-radius: 20px;
+}
+
+
+.myBtnDiv {
+	position:absolute;
+	width:300px;
+	height:70px;
+	margin-top:-35px;
+	margin-left:-150px;
+	left:50%;
+	top:50%;
+	/* border:1px solid #555; */
+}
+
+.myBtn {
+	position:relative;
+	float: left;
+	margin-left: 10px;
+	width: 135px;
+	height: 60px;
+	margin-top: 10px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.buttonIcon{
+	position:absolute;
+	font-size: 24px;
+	left:5px;
+	top:55px;
+	width:45px;
+	height:50px;
+	line-height:50px;
+}
+
+.buttonText{
+	position:absolute;
+	left:5px;
+	top:5px;
+	width:125px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+}
+
+ .myForm {
+	height:360px;
+	display:none;
+	z-index:2;
+	position:absolute;
+	margin-top:-15%;
+	margin-left:7%;
+	padding:15px;
+	border:5px solid blue;
+	color:blue;
+ }
+
+.modal-form .form-group{
+	margin-bottom:3px;
+}
+
+.modal-dialog.full {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.buttonLeft{
+	float: left;
+}
+
+.myFunc{
+	color: #fff;
+	text-align: center;
+}
+
+.myOver{
+	background-color: #337ab7;
+}
+
+.myIcon{
+	 color: #fff;
+	 margin-right: 6px;
+}
+
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    top: -9999999;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+
+.modal{
+	overflow: auto !important;
+}
+
+.table th{width:100px !important;min-width:100px !important;max-width:100px !important;white-space:normal;}
+.table td{width:100px !important;min-width:100px !important;max-width:100px !important;white-space:normal;}
+
+
+	.table th:nth-child(1) {  width:100px !important;  width:100px;}   .table td:nth-child(1) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(2) {  width:100px !important;  width:100px;}   .table td:nth-child(2) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(3) {  width:100px !important;  width:100px;}   .table td:nth-child(3) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(4) {  width:100px !important;  width:100px;}   .table td:nth-child(4) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(5) {  width:100px !important;  width:100px;}   .table td:nth-child(5) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(6) {  width:100px !important;  width:100px;}   .table td:nth-child(6) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(7) {  width:100px !important;  width:100px;}   .table td:nth-child(7) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(8) {  width:100px !important;  width:100px;}   .table td:nth-child(8) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(9) {  width:100px !important;  width:100px;}   .table td:nth-child(9) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(10) {  width:100px !important;  width:100px;}   .table td:nth-child(10) { height:auto; width:100px !important; width:100px; }
+	.table th:nth-child(11) {  width:100px !important;  width:100px;}   .table td:nth-child(11) { height:auto; width:102px !important; width:102px; }
+	.table th:nth-child(12) {  width:100px !important;  width:100px;}   .table td:nth-child(12) { height:auto; width:102px !important; width:102px; }
+	.table th:nth-child(13) {  width:100px !important;  width:100px;}   .table td:nth-child(13) { height:auto; width:102px !important; width:102px; }
+	.table th:nth-child(14) {  width:100px !important;  width:100px;}   .table td:nth-child(14) { height:auto; width:97px !important; width:97px; }
+
+
+
+@media (max-width:560px){
+	.modal-footer .btn+.btn {
+	    margin-top: 5px;
+	}
+
+	.btnMargin{
+		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width: 767px){
+	.table-responsive>.table>thead>tr>th {
+    white-space: normal !important;
+}
+}
+
+@media (max-width: 1200px){
+		.fiButton {
+			float: left;
+    	width: 200px;
+		}
+}
+
+@media (max-width: 720px){
+	.modal-dialog{
+		margin: 0;
+	}
+}
+
+@media (max-width: 720px){
+	#myModal{
+		padding-left: 0 !important;
+	}
+}
+
+@media (min-width: 990px){
+	#reportModal{
+		padding-left: 0 !important;
+	}
+}
+
+@media (max-width: 990px){
+	#reportModal{
+		padding-left: 0 !important;
+	}
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+  	<link href="css/style.css" rel="StyleSheet"/>
+  	<link rel="stylesheet" href="css/font-awesome.css">
+  	<link rel="stylesheet" href="css/ngToast.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/ngToast.min.js"></script>
+  	<script src="js/modernizr-2.8.3.js"></script>
+  	<script src="js/jquery-ui.min.js"></script>
+  	<script src="js/infragistics.core.js"></script>
+  	<script src="js/infragistics.lob.js"></script>
+  	<script src="js/infragistics.ext_core.js"></script>
+  	<script src="js/infragistics.ext_collections.js"></script>
+  	<script src="js/infragistics.ext_text.js"></script>
+  	<script src="js/infragistics.ext_io.js"></script>
+  	<script src="js/infragistics.ext_ui.js"></script>
+  	<script src="js/infragistics.documents.core_core.js"></script>
+  	<script src="js/infragistics.ext_collectionsextended.js"></script>
+  	<script src="js/infragistics.excel_core.js"></script>
+  	<script src="js/infragistics.ext_threading.js"></script>
+  	<script src="js/infragistics.ext_web.js"></script>
+  	<script src="js/infragistics.xml.js"></script>
+  	<script src="js/infragistics.documents.core_openxml.js"></script>
+  	<script src="js/infragistics_openxml.js"></script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+
+	<div class="myBtnDiv">
+		<button type="button" ng-click="reverseShow('open')" class="btn btn-primary btn-md myBtn" data-toggle="modal" data-target="#myModal">
+			<div class="buttonIcon"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+			<div class="buttonText">Oluştur</div>
+		</button>
+		<button type="button"  ng-click="reverseShowTable('open')" class="btn btn-primary btn-md myBtn" data-toggle="modal" data-target="#reportModal">
+			<div class="buttonIcon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
+			<div class="buttonText">Raporlar</div>
+		</button>
+	</div>
+
+	<!-- Modal Table -->
+		  <div class="modal fade" id="reportModal" role="dialog">
+			 <div class="modal-dialog modal-lg full">
+			  <div class="modal-content">
+			 <div class="modal-header myOver">
+			<h4 class="modal-title myFunc"><i class="fa fa-address-book myIcon" aria-hidden="true"></i>Raporlar</h4>
+			</div>
+        <div class="modal-body">
+			<div class="table-responsive tableMy">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>
+                <a href="" ng-click="orderByField='tedarikciadi'; reverseSort = !reverseSort">
+                    Tedarikçi Adı
+                  <span ng-show="orderByField == 'tedarikciadi'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='referanslar'; reverseSort = !reverseSort">
+                    Referanslar
+                  <span ng-show="orderByField == 'referanslar'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='fiyat'; reverseSort = !reverseSort">
+                    Fiyat
+                  <span ng-show="orderByField == 'fiyat'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='calisanSayisi'; reverseSort = !reverseSort">
+                    Çalışan Sayısı
+                  <span ng-show="orderByField == 'calisanSayisi'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='yonetsel'; reverseSort = !reverseSort">
+                    Yönetsel
+                  <span ng-show="orderByField == 'yonetsel'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='davranisIletisim'; reverseSort = !reverseSort">
+                    Davranış İletişim
+                  <span ng-show="orderByField == 'davranisIletisim'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='kaliteBelgeleri'; reverseSort = !reverseSort">
+                    Kalite Belgeleri
+                  <span ng-show="orderByField == 'kaliteBelgeleri'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='vade'; reverseSort = !reverseSort">
+                    Vade
+                  <span ng-show="orderByField == 'vade'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='teknolojik'; reverseSort = !reverseSort">
+                    Teknolojik
+                  <span ng-show="orderByField == 'teknolojik'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='istekDurumu'; reverseSort = !reverseSort">
+                    İstek Durumu
+                  <span ng-show="orderByField == 'istekDurumu'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='sektordekiDurumu'; reverseSort = !reverseSort">
+                    Sektördeki durumu
+                  <span ng-show="orderByField == 'sektordekiDurumu'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>
+                <a href="" ng-click="orderByField='toplam'; reverseSort = !reverseSort">
+                    Toplam
+                  <span ng-show="orderByField == 'toplam'"><span ng-show="!reverseSort">
+                  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                  </span><span ng-show="reverseSort"><i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                  </span>
+                  </span>
+                </a>
+              </th>
+							<th>Değiştir</th>
+							<th>Sil</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="roll in inputsJson | orderBy:orderByField:reverseSort | filter:search">
+						  <td>{{ roll.tedarikciadi }}</td>
+							<td>{{ roll.referanslar }}</td>
+							<td>{{ roll.fiyat }}</td>
+							<td>{{ roll.calisanSayisi }}</td>
+							<td>{{ roll.yonetsel }}</td>
+							<td>{{ roll.davranisIletisim }}</td>
+							<td>{{ roll.kaliteBelgeleri }}</td>
+							<td>{{ roll.vade }}</td>
+							<td>{{ roll.teknolojik }}</td>
+							<td>{{ roll.istekDurumu }}</td>
+							<td>{{ roll.sektordekiDurumu }}</td>
+							<td>{{ roll.toplam }}</td>
+							<td>
+							  <button type="button" class="btn btn-default btn-md myLeft" ng-click="edit(roll)";>
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>
+										Değiştir
+							  </button>
+							</td>
+								<td>
+								<button type="button" class="btn btn-default btn-md" ng-click="delete(roll.id)";>
+								  <i class="fa fa-trash" aria-hidden="true"></i>
+										Sil
+							  </button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+    </div>
+		</div>
+			<div class="modal-footer">
+				  <button type="button" class="btn btn-default btn-md buttonLeft" data-dismiss="modal">
+					 <i class="fa fa-times" aria-hidden="true"></i>
+							    Kapat
+					  </button>
+            <div class="col-lg-3 fiButton">
+              <div class="input-group">
+                <input type="text" class="form-control" ng-model="search" placeholder="Arama">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-default btn-md btnMargin" onClick="window.location.href='/Users/medepia/Desktop/Tedarikçi/toplam/excel/text.xlsx'"/>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                Excel Örneği
+            </button>
+            <label class="btn-bs-file btn btn-md btn-default myExcel">
+  					     <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+  						          Excel Yükle
+  					    <input type="file" id="input" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+  					<div id="result"></div>
+  				</label>
+				</div>
+		 </div>
+	  </div>
+	</div>
+	<!-- Modal Table Finish-->
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header myOver">
+		        <h4 class="modal-title myFunc"><i class="fa fa-id-card-o myIcon" aria-hidden="true"></i>Oluştur</h4>
+        </div>
+        <div class="modal-body">
+		        <div class="row">
+          <form class="form-inline modal-form" action="/action_page.php">
+        <div class="form-group col-xs-12">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="tedarikci" class="myText col-lg-6 col-md-6 col-sm-6">Tedarikçi Adı<span class="requiredStar">*<span></label>
+            <input type="tedarikci" ng-model="myApp0" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="tedarikci" placeholder="Tedarikçi Adı" name="tedarikci">
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="referans" class="myText col-lg-6 col-md-6 col-sm-6">Referanslar<span class="requiredStar">*<span></label>
+            <input type="referans" ng-model="myApp1" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="referans" placeholder="Referanslar" name="referans">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="Fiyat " class="myText col-lg-6 col-md-6 col-sm-6">Fiyat<span class="requiredStar">*<span></label>
+            <input type="Fiyat" ng-model="myApp2"  ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="fiyat" placeholder="Fiyat" name="fiyat">
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="çalışan sayısı" class="myText col-lg-6 col-md-6 col-sm-6">Çalışan sayısı<span class="requiredStar">*<span></label>
+            <input type="çalışan sayısı" ng-model="myApp3" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="çalışan sayısı" placeholder="Çalışan sayısı" name="çalışan sayısı">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="Yönetsel açıdan yeterli" class="myText col-lg-6 col-md-6 col-sm-6">Yönetsel<span class="requiredStar">*<span></label>
+            <input type="yönetsel açıdan yeterli" ng-model="myApp4" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="yönetsel açıdan yeterli" placeholder="Yönetsel" name="yönetsel açıdan yeterli">
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="davranış iletişim" class="myText col-lg-6 col-md-6 col-sm-6">Davranış iletişim<span class="requiredStar">*<span></label>
+            <input type="davranış iletişim" ng-model="myApp5" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="davranış iletişim" placeholder="Davranış iletişim" name="davranış iletişim">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="kalite belgeleri" class="myText col-lg-6 col-md-6 col-sm-6">Kalite belgeleri<span class="requiredStar">*<span></label>
+            <input type="kalite belgeleri" ng-model="myApp6" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="kalite belgeleri" placeholder="Kalite belgeleri" name="kalite belgeleri">
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="vade" class="myText col-lg-6 col-md-6 col-sm-6">Vade<span class="requiredStar">*<span></label>
+            <input type="vade" ng-model="myApp7" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="çalışan sayısı" placeholder="Vade" name="vade">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="teknolojik" class="myText col-lg-6 col-md-6 col-sm-6">Teknolojik<span class="requiredStar">*<span></label>
+            <input type="teknolojik" ng-model="myApp8" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="teknolojik" placeholder="Teknolojik" name="teknolojik">
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6">
+            <label for="İstek durumu" class="myText col-lg-6 col-md-6 col-sm-6">İstek durumu<span class="requiredStar">*<span></label>
+            <input type="istek durumu" ng-model="myApp9" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="istek durumu" placeholder="İstek durumu" name="istek durumu">
+          </div>
+        </div>
+
+
+		<div class="form-group col-xs-12">
+			<div class="form-group col-lg-6 col-md-6 col-sm-6">
+				<label for="sektördeki durumu" class="myText col-lg-6 col-md-6 col-sm-6">Sektördeki durumu<span class="requiredStar">*<span></label>
+				<input type="sektördeki durumu" ng-model="myApp10" ng-change="changedInput()" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="sektördeki durumu" placeholder="Sektördeki durumu" name="Sektördeki durumu">
+			</div>
+			<div class="form-group col-lg-6 col-md-6 col-sm-6">
+        <label for="Toplam" class="myText col-lg-6 col-md-6 col-sm-6">Toplam<span class="requiredStar">*<span></label>
+        <input type="Toplam" ng-model="myTotal" class="form-control col-lg-6 col-md-6 col-sm-6 myRadius" id="Toplam" placeholder = "Toplam" name="Toplam">
+      </div>
+		</div>
+
+			  </form>
+			  </div>
+				</div>
+				  <div class="modal-footer">
+				  <button ng-if="geriButonu" type="button" class="btn btn-default btn-md buttonLeft" ng-click="back()">
+            <i class="fa fa-undo" aria-hidden="true"></i>
+            <span >Geri</span>
+					</button>
+          <button  ng-if="kapatButonu" type="button" class="btn btn-default btn-md buttonLeft" data-dismiss="modal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+						<span>Kapat</span>
+					</button>
+				  <button type="button" class="btn btn-default btn-md" data-dismiss="modal" ng-click="save()">
+					  <i class="fa fa-floppy-o" aria-hidden="true"></i>
+					  <span ng-if = "kaydetButonu" >Kaydet</span>
+					  <span ng-if = "guncelleButonu" >Güncelle</span>
+				  </button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Modal Finish -->
+
+
+  </body>
+</html>
